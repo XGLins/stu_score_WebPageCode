@@ -1,6 +1,3 @@
-<!-- 论语 大学 中庸 大学 -->
-<!-- 多线程 数据结构 重构 -->
-
 <template>
     <div>
 
@@ -56,6 +53,7 @@
             </el-table-column>
             <el-table-column prop="avatar" label="头像" width="">
                 <template slot-scope="scope">
+                    <!-- 调试头像显示，打印图片名字在网页上 -->
                     <span>{{ scope.row.avatar }}</span>
                     <el-avatar v-if="scope.row.avatar" :src="'/api/file/download/' + scope.row.avatar"></el-avatar>
                     <el-avatar v-else src=""></el-avatar>
@@ -81,16 +79,22 @@
 
 <script>
 import axios from 'axios'
+// import Upload from '../../components/Upload.vue'
+import Upload from '@/components/Upload'
 export default {
     name: 'Teacher',
     components: {
-
+        Upload
     },
     data() {
         return {
+            //上传文件的内容
+            uploadObj: {
+                fileName: null
+            },
             formData: {
-                name: '',
-                phone: '',
+                // name: '',
+                // phone: '',
             },
             formRules: {//表单规则
                 name: [
@@ -129,6 +133,7 @@ export default {
             this.formData = {}
             this.dialogVisible = true
             this.dialogTitle = "新增"
+            this.uploadObj.fileName = null; //<调试新增代码>
             // alert(1)
         },
         //新增 或者 编辑调用该函数
@@ -139,7 +144,7 @@ export default {
                     return
                 }
                 //提交前，重新设置头像地址
-                //this.formData.avatar = this.uploadObj.fileName
+                this.formData.avatar = this.uploadObj.fileName
                 //console.log("提交对象", this.formData, this.uploadObj.fileName)
 
                 console.log("提交对象", this.formData)
@@ -165,15 +170,13 @@ export default {
                 }
 
             })
-            // this.dialogVisible = false
+            this.dialogVisible = false
         },
         searchSubmit() {
             console.log('searchSubmit')
             let that = this
             this.$refs['vForm'].validate(valid => {
-                if (!valid) {
-                    return
-                }
+                if (!valid)  return
                 console.log(that.searchFormData)
                 // let params = Object.assign(that.searchFormData,{ current:that.pageObj.currentPage,size:that.pageObj.pageSize})
                 let params = Object.assign(that.searchFormData, { current: 1, size: 10 })
@@ -268,7 +271,7 @@ export default {
                 console.log(id)
                 console.log(resp.data);
                 that.formData = resp.data.data
-                //that.uploadObj.fileName = that.formData.avatar
+                that.uploadObj.fileName = that.formData.avatar
             })
         },
 
