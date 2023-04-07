@@ -1,7 +1,7 @@
 <template>
     <!-- <div>班级管理</div> -->
     <div>
-
+        <h1 style="margin-left: 10px;">班级-信息管理</h1>
         <el-form :inline="true" ref="vForm" :model="searchFormData" label-position="right" label-width="80px"
             class="demo-form-inline">
             <el-form-item label="班级ID" prop="id">
@@ -249,7 +249,7 @@ export default {
 
         },
         openEditWindow(id) {//点击编辑按钮
-            alert(id)
+            // alert(id)
             this.dialogVisible = true
             //this.dialogVisible = ture
             //this.formData.id = id

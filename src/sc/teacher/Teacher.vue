@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <h1 style="margin-left: 10px;">教师-信息管理</h1>
         <el-form :inline="true" ref="vForm" :model="searchFormData" label-position="right" label-width="80px"
             class="demo-form-inline">
             <el-form-item label="姓名" prop="name">
@@ -54,7 +54,7 @@
             <el-table-column prop="avatar" label="头像" width="">
                 <template slot-scope="scope">
                     <!-- 调试头像显示，打印图片名字在网页上 -->
-                    <span>{{ scope.row.avatar }}</span>
+                    <!-- <span>{{ scope.row.avatar }}</span> -->
                     <el-avatar v-if="scope.row.avatar" :src="'/api/file/download/' + scope.row.avatar"></el-avatar>
                     <el-avatar v-else src=""></el-avatar>
                 </template>
@@ -112,7 +112,7 @@ export default {
             dialogVisible: false,//是否显示
             searchFormData: {},
             tableData: [
-                // { name: "张三", phone: "131321513213", avatar: "toutou" }
+                { name: "张三", phone: "131321513213", avatar: "toutou" }
             ],
             pageObj: {
                 pageSize: 10,
