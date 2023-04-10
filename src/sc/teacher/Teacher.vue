@@ -112,7 +112,7 @@ export default {
             dialogVisible: false,//是否显示
             searchFormData: {},
             tableData: [
-                { name: "张三", phone: "131321513213", avatar: "toutou" }
+                // { name: "张三", phone: "131321513213", avatar: "toutou" }
             ],
             pageObj: {
                 pageSize: 10,

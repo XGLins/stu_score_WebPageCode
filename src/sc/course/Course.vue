@@ -67,18 +67,13 @@
 
 <script>
 import axios from 'axios'
-import Upload from '@/components/Upload'
 export default {
     name: 'Course',
     components: {
-        Upload
+        
     },
     data() {
         return {
-            //上传文件的内容
-            uploadObj: {
-                fileName: null
-            },
             formData: {
                 // id: '',
                 // name: '',
@@ -100,9 +95,9 @@ export default {
             dialogVisible: false,//是否显示
             searchFormData: {},
             tableData: [
-                { id: "001", name: "JavaSE 高级编程" },
-                { id: "002", name: "MySQL数据库编程" },
-                { id: "003", name: "SSM框架实战" },
+                // { id: "001", name: "JavaSE 高级编程" },
+                // { id: "002", name: "MySQL数据库编程" },
+                // { id: "003", name: "SSM框架实战" },
                 
             ],
             pageObj: {
@@ -124,7 +119,6 @@ export default {
             this.formData = {}
             this.dialogVisible = true
             this.dialogTitle = "新增"
-            this.uploadObj.fileName = null; //<调试新增代码>
             // alert(1)
         },
         //新增 或者 编辑调用该函数
@@ -254,13 +248,12 @@ export default {
             //this.dialogVisible = ture
             //this.formData.id = id
             this.dialogTitle = "编辑"
-
+            
             let that = this
             axios.get(`/api/score/scCourse/${id}`).then((resp) => {
                 console.log(id)
                 console.log(resp.data);
                 that.formData = resp.data.data
-                // that.uploadObj.fileName = that.formData.avatar
             })
         },
 

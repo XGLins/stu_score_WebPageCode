@@ -4,17 +4,22 @@
     <div>
         <h1 style="margin-left: 10px;">学生-信息管理</h1>
 
+        <!-- 搜索栏功能模块 -->
         <el-form :inline="true" ref="vForm" :model="searchFormData" label-position="right" label-width="80px"
             class="demo-form-inline">
+            <!-- 通过 学生Id 进行搜索 -->
             <el-form-item label="学生ID" prop="id">
                 <el-input v-model="searchFormData.id" placeholder=""></el-input>
             </el-form-item>
+            <!-- 通过 学生姓名 进行搜索 -->
             <el-form-item label="学生姓名" prop="name">
                 <el-input v-model="searchFormData.name" placeholder=""></el-input>
             </el-form-item>
+            <!-- 通过 班级Id 进行搜索 -->
             <el-form-item label="班级ID" prop="classId">
                 <el-input v-model="searchFormData.classId" placeholder=""></el-input>
             </el-form-item>
+            <!-- 通过 班级名称 进行搜索 -->
             <el-form-item label="班级名称" prop="className">
                 <el-input v-model="searchFormData.className" placeholder=""></el-input>
             </el-form-item>
@@ -25,7 +30,7 @@
         </el-form>
 
         <hr />
-        <!-- 新增模块 -->
+        <!-- 新增-模块 -->
         <div style="background-color:gray">
             <el-button type="primary" @click="openAddWindow">新增</el-button>
         </div>
@@ -33,7 +38,7 @@
             :destroy-on-close="true">
             <div>
                 <el-form :model="formData" ref="formData" :rules="formRules">
-                    <!-- 学生信息 -->
+                    <!-- 学生id--->
                     <el-form-item label="学生ID" :label-width="formLabelWidth">
                         <el-input v-model="formData.id" autocomplete="off" :disabled="true"></el-input>
                     </el-form-item>
@@ -56,7 +61,6 @@
                     </el-form-item>
 
                 </el-form>
-
             </div>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">取 消</el-button>
@@ -64,7 +68,7 @@
             </span>
         </el-dialog>
 
-
+        <!-- 表头部分 -->
         <el-table :data="tableData" style="width:100%">
             <el-table-column prop="id" label="学生ID" width="">
             </el-table-column>
@@ -106,7 +110,6 @@
 
 <script>
 import axios from 'axios'
-// import Upload from '../../components/Upload.vue'
 import Upload from '@/components/Upload'
 export default {
     name: 'Student',
@@ -145,7 +148,7 @@ export default {
             dialogVisible: false,//是否显示
             searchFormData: {},
             tableData: [
-                { id: "222", name: "张三", phone: "131321513213", avatar: "toutou" ,classId: "0",className: "2020级软件技术0班" }
+                // { id: "222", name: "张三", phone: "131321513213", avatar: "toutou" ,classId: "0",className: "2020级软件技术0班" }
             ],
             pageObj: {
                 pageSize: 10,

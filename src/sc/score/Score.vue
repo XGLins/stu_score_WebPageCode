@@ -91,13 +91,6 @@
             </el-table-column>
             <el-table-column prop="score" label="成绩" width="">
             </el-table-column>
-
-            <!-- <el-table-column fixed="right" label="操作" width="100">
-                <template slot-scope="scope">
-                    <el-button @click="openEditWindow(scope.row.id)" type="text" size="small">编辑</el-button>
-                    <el-button @click="deleteById(scope.row.id)" type="text" size="small">删除</el-button>
-                </template>
-            </el-table-column> -->
         </el-table>
         <br />
 
@@ -114,18 +107,13 @@
 
 <script>
 import axios from 'axios'
-// import Upload from '@/components/Upload'
 export default {
     name: 'Student',
     components: {
-        // Upload
+        
     },
     data() {
         return {
-            //上传文件的内容
-            // uploadObj: {
-            //     fileName: null
-            // },
             formData: {
                 
             },
@@ -173,7 +161,7 @@ export default {
             dialogVisible: false,//是否显示
             searchFormData: {},
             tableData: [
-                { id: "01", studentName: "张三", courseName: "JacaSE 高级编程", className: "2020级软件技术0班", teacherName: "宋浩", score: "145" }
+                // { id: "01", studentName: "张三", courseName: "JacaSE 高级编程", className: "2020级软件技术0班", teacherName: "宋浩", score: "145" }
             ],
             pageObj: {
                 pageSize: 10,
@@ -194,7 +182,6 @@ export default {
             this.formData = {}
             this.dialogVisible = true
             this.dialogTitle = "新增"
-            this.uploadObj.fileName = null; //<调试新增代码>
             // alert(1)
         },
         //新增 或者 编辑调用该函数
@@ -204,10 +191,6 @@ export default {
                 if (!valid) {
                     return
                 }
-                //提交前，重新设置头像地址
-                // this.formData.avatar = this.uploadObj.fileName
-                //console.log("提交对象", this.formData, this.uploadObj.fileName)
-
                 console.log("提交对象", this.formData)
                 if (this.formData.id || this.formData.id == 0) {//修改一条教师数据
                     axios.put('/api/score/scScore/update', this.formData).then((resp) => {
@@ -332,7 +315,6 @@ export default {
                 console.log(id)
                 console.log(resp.data);
                 that.formData = resp.data.data
-                // that.uploadObj.fileName = that.formData.avatar
             })
         },
 

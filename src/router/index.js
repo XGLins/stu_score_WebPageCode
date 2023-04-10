@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Home from '@/home/Home'
+// 基础管理
 import Student from '@/sc/student/Student'
 import Teacher from '@/sc/teacher/Teacher'
 import Classes from '@/sc/classes/Classes'
 import Course from '@/sc/course/Course'
 import Score from '@/sc/score/Score'
+// 统计管理
+import StatisticsClasses from '@/statistics/class/statisticsClasses'
+import StatisticsCourse from '@/statistics/course/statisticsCourse'
+import StatisticsTeacher from '@/statistics/teacher/statisticsTeacher'
 
 Vue.use(Router)
 
@@ -17,6 +21,7 @@ export default new Router({
       name: 'Home',
       component: Home,
       children:[
+        // 基础管理
         {
           path: '/student',
           name: 'student',
@@ -41,9 +46,28 @@ export default new Router({
           path: '/score',
           name: 'score',
           component: Score
-        }
+        },
+
+        // 统计管理
+        {
+          path: '/statisticsClasses',
+          name: 'statisticsClasses',
+          component: StatisticsClasses
+        },
+        {
+          path: '/statisticsCourse',
+          name: 'statisticsCourse',
+          component: StatisticsCourse
+        },
+        {
+          path: '/statisticsTeacher',
+          name: 'statisticsTeacher',
+          component: StatisticsTeacher
+        },
+      
       ]
-    }
+    },
+
     
   ]
 })
