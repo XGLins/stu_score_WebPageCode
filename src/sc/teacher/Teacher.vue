@@ -10,15 +10,15 @@
                 <el-input v-model="searchFormData.phone" placeholder=""></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="searchSubmit">查询</el-button>
-                <el-button type="primary" @click="searchResetForm">重置</el-button>
+                <el-button style="background-color:#C0D9D9;border-color:#C0D9D9" type="primary" @click="searchSubmit">查询</el-button>
+                <el-button style="background-color:#C0D9D9;border-color:#C0D9D9" type="primary" @click="searchResetForm">重置</el-button>
             </el-form-item>
         </el-form>
 
         <hr />
         <!-- 新增模块 -->
-        <div style="background-color:gray">
-            <el-button type="primary" @click="openAddWindow">新增</el-button>
+        <div style="background-color:#C0D9D9">
+            <el-button type="primary" @click="openAddWindow" style="color:black;background-color:#DB9370;border-color:#DB9370">新增</el-button>
         </div>
         <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" :close-on-click-modal="false"
             :destroy-on-close="true">
@@ -67,11 +67,13 @@
             </el-table-column>
         </el-table>
         <br />
+
+        <hr size="8px" color="#C0D9D9">
         <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
             :current-page="pageObj.currentPage" :page-sizes="[5, 10, 20, 30, 40]" :page-size="pageObj.pageSize"
             layout="total, sizes, prev, pager, next" :total="pageObj.total">
         </el-pagination>
-
+        <hr size="3px" color="#C0D9D9">
 
     </div>
 </template>

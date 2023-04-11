@@ -38,7 +38,7 @@
             </el-menu>  -->
         </div>
         <div class="body">
-            <div class="head">张三，您好</div>
+            <div class="head" style="background-color:#C0D9D9">张三，您好,您觉得代码好玩吗？  别说还行，真的还挺好玩的！少一点error 就更好了！</div>
             <div class="content">
                 <router-view></router-view>
             </div>

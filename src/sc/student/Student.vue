@@ -24,15 +24,15 @@
                 <el-input v-model="searchFormData.className" placeholder=""></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="searchSubmit">查询</el-button>
-                <el-button type="primary" @click="searchResetForm">重置</el-button>
+                <el-button style="background-color:#C0D9D9;border-color:#C0D9D9" type="primary" @click="searchSubmit">查询</el-button>
+                <el-button style="background-color:#C0D9D9;border-color:#C0D9D9" type="primary" @click="searchResetForm">重置</el-button>
             </el-form-item>
         </el-form>
 
         <hr />
-        <!-- 新增-模块 -->
-        <div style="background-color:gray">
-            <el-button type="primary" @click="openAddWindow">新增</el-button>
+        <!-- 新增-模块 gray D9D9f3-->
+        <div style="background-color:#C0D9D9">
+            <el-button type="primary" @click="openAddWindow" style="color:black;background-color:#DB9370;border-color:#DB9370">新增</el-button>
         </div>
         <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" :close-on-click-modal="false"
             :destroy-on-close="true">
@@ -53,9 +53,9 @@
                     </el-form-item>
 
                     <!-- 班级信息 -->
-                    <el-form-item label="班级ID" :label-width="formLabelWidth" prop="classId">
+                    <!-- <el-form-item label="班级ID" :label-width="formLabelWidth" prop="classId">
                         <el-input v-model="formData.classId" autocomplete="off" ></el-input>
-                    </el-form-item>
+                    </el-form-item> -->
                     <el-form-item label="班级名称" :label-width="formLabelWidth" prop="className">
                         <el-input v-model="formData.className" autocomplete="off"></el-input>
                     </el-form-item>
@@ -98,12 +98,14 @@
             </el-table-column>
         </el-table>
         <br />
-        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-            :current-page="pageObj.currentPage" :page-sizes="[5, 10, 20, 30, 40]" :page-size="pageObj.pageSize"
-            layout="total, sizes, prev, pager, next" :total="pageObj.total">
-        </el-pagination>
-
-
+        
+            <hr size="8px" color="#C0D9D9">
+            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                :current-page="pageObj.currentPage" :page-sizes="[5, 10, 20, 30, 40]" :page-size="pageObj.pageSize"
+                layout="total, sizes, prev, pager, next" :total="pageObj.total">
+            </el-pagination>
+            <hr size="3px" color="#C0D9D9">
+            
     </div>
 </template>
 
